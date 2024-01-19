@@ -13,8 +13,8 @@
 	stream << timestamp << " " << file << ":" << line << ": " << prefix; \
 	([] <typename... Args> (Args&&... args) { \
 		const char* separator = ""; \
-		((std::cout << separator << std::forward<Args>(args), separator = " "), ...); \
-		std::cout << std::endl; \
+		((stream << separator << std::forward<Args>(args), separator = " "), ...); \
+		stream << std::endl; \
 	})
 
 #define LoggerFprintln(stream, ...) do { LoggerFprintln_(stream, "", __FILE__, __LINE__)(__VA_ARGS__); } while (false)
