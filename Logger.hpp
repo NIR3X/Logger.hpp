@@ -12,8 +12,9 @@
 	std::strftime(timestamp, sizeof(timestamp), "%Y/%m/%d %H:%M:%S", &tm); \
 	stream << timestamp << " " << file << ":" << line << ": " << prefix; \
 	([] <typename... Args> (Args&&... args) { \
-		((stream << std::forward<Args>(args) << ' '), ...); \
-		stream << std::endl; \
+		const char* separator = ""; \
+		((std::cout << separator << std::forward<Args>(args), separator = " "), ...); \
+		std::cout << std::endl;
 	})
 
 #define LoggerFprintln(stream, ...) do { LoggerFprintln_(stream, "", __FILE__, __LINE__)(__VA_ARGS__); } while (false)
