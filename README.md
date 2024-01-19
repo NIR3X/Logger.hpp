@@ -4,15 +4,21 @@ The `Logger` header provides a straightforward logging utility for C++ applicati
 
 ## Installation
 
-To use this header in your C++ project, you can include it by copying the contents into your code or using it as a separate header file.
+To use this header in your C++ project, you can clone the repository using the following command:
+
+```bash
+git clone https://github.com/NIR3X/Logger.hpp
+```
+
+Then, include the header in your C++ code:
+
+```cpp
+#include "Logger.hpp/Logger.hpp"
+```
 
 ## Usage
 
-Include the header in your C++ code:
-
-```cpp
-#include "Logger.hpp"
-```
+Now that you have the `Logger` header in your project, you can follow the usage examples:
 
 ## LoggerFprintln
 
