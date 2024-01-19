@@ -14,7 +14,7 @@
 	([] <typename... Args> (Args&&... args) { \
 		const char* separator = ""; \
 		((std::cout << separator << std::forward<Args>(args), separator = " "), ...); \
-		std::cout << std::endl;
+		std::cout << std::endl; \
 	})
 
 #define LoggerFprintln(stream, ...) do { LoggerFprintln_(stream, "", __FILE__, __LINE__)(__VA_ARGS__); } while (false)
