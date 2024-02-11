@@ -13,7 +13,7 @@ git clone https://github.com/NIR3X/Logger.hpp
 Then, include the header in your C++ code:
 
 ```cpp
-#include "Logger.hpp/Logger.hpp"
+#include "Logger.hpp"
 ```
 
 ## Usage
