@@ -2,6 +2,7 @@
 
 #include <ctime>
 #include <iostream>
+#include <string_view>
 #include <utility>
 
 #define LoggerFprintln_(stream, prefix, file, line) \
@@ -12,8 +13,9 @@
 	strftime(timestamp, sizeof(timestamp), "%Y/%m/%d %H:%M:%S", &tm); \
 	stream << timestamp << " " << file << ":" << line << ": " << prefix; \
 	([] <typename... Args> (Args&&... args) { \
-		const char* separator = ""; \
-		((stream << separator << std::forward<Args>(args), separator = " "), ...); \
+		using namespace std::literals::string_view_literals; \
+		std::string_view separator = ""sv; \
+		((stream << separator << std::forward<Args>(args), separator = " "sv), ...); \
 		stream << std::endl; \
 	})
 
