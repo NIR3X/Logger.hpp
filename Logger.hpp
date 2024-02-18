@@ -12,7 +12,7 @@
 	char timestamp[20]; \
 	strftime(timestamp, sizeof(timestamp), "%Y/%m/%d %H:%M:%S", &tm); \
 	stream << timestamp << " " << file << ":" << line << ": " << prefix; \
-	([] <typename... Args> (Args&&... args) { \
+	([&] <typename... Args> (Args&&... args) { \
 		using namespace std::literals::string_view_literals; \
 		std::string_view separator = ""sv; \
 		((stream << separator << std::forward<Args>(args), separator = " "sv), ...); \
